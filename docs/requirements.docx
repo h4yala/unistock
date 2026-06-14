@@ -1,0 +1,17 @@
+**Functional Requirements:**
+
+RF01 — Select products from stock
+RF02 — Allow input of quantity received and date of entry
+RF03 — Remove products from stock
+RF04 — Validate merchandise availability
+RF05 — Automatically update stock
+RF06 — Record movements
+
+**Non-functional Requirements:**
+
+RNF01 — Simple interface
+RNF02 — Respond in a few seconds
+RNF03 — Maintain accurate records
+RNF04 — Maintain data consistency
+RNF05 — Ensure data integrity when entering products
+RNF06 — Ensure data integrity when removing products
