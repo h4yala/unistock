@@ -1,4 +1,4 @@
-from stock import cadastrar_item
+from stock import cadastrar_item, entrada_item
 
 
 def mostrar_menu():
@@ -27,7 +27,7 @@ def main():
             cadastrar_item(estoque)
 
         elif opcao == "2":
-            print("\nEntrada ainda não implementada.")
+            entrada_item(estoque)
 
         elif opcao == "3":
             print("\nSaída ainda não implementada.")
