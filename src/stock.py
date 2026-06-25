@@ -1,4 +1,4 @@
-def cadastrar_item(estoque):
+def cadastrar_item(estoque): #função de cadastro do item
 
     while True:
 
@@ -8,7 +8,11 @@ def cadastrar_item(estoque):
             print("\nO código não pode estar vazio.")
             continue
         
-        if codigo.isdigit() == 0:
+        if not codigo.isdigit():
+            print("\nInforme apenas números.")
+            continue
+
+        if int(codigo) == 0:
             print("\nO código não pode ser zero.")
             continue
 
@@ -25,6 +29,10 @@ def cadastrar_item(estoque):
 
         if nome == "":
             print("\nO nome não pode estar vazio.")
+            continue
+
+        if len(nome) < 2:
+            print("\nInforme um nome válido.")
             continue
 
         break
