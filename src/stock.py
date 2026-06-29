@@ -35,7 +35,7 @@ def cadastrar_item(estoque): # função de cadastro do item
             continue
 
         if len(nome) < 2:
-            print("\nInforme um nome válido.")
+            print("\nO nome deve possuir no mínimo 2 caracteres.")
             continue
 
         break
@@ -148,8 +148,6 @@ def entrada_item(estoque): # função para dar entrada nos itens
         }
      )
 
-    print("\nMovimentação registrada com sucesso.")
-
     print("\nEntrada registrada com sucesso.")
     print(
         f"Estoque atual: {estoque[codigo]['quantidade']}"
@@ -207,6 +205,13 @@ def saida_item(estoque): # função para dar saída nos itens
                 continue
 
             return
+        
+        if estoque[codigo]["quantidade"] == 0:
+
+            print("\nItem sem estoque disponível.")
+
+            input("\nPressione ENTER para voltar ao menu...")
+            return
 
         break
 
@@ -247,7 +252,7 @@ def saida_item(estoque): # função para dar saída nos itens
 
         except ValueError:
             print("\nData inválida.")
-
+            continue
 
     while True:
 
@@ -274,13 +279,6 @@ def saida_item(estoque): # função para dar saída nos itens
 
     print("\nSaída registrada com sucesso.")
     print(f"Estoque atual: {estoque[codigo]['quantidade']}")
-
-
-    if estoque[codigo]["quantidade"] == 0:
-        print("\nAviso: estoque zerado.")
-
-
-    input("\nPressione ENTER para voltar ao menu...")
 
 # ------------------------------------------------------------------------------------------------------------
 
@@ -317,19 +315,15 @@ def consultar_historico(estoque): # mostrar todo o historico do item
             for codigo, item in estoque.items():
 
                 print(
-                    f"{codigo} - {item['nome']}"
+                    f"[{codigo}] {item['nome']} |"
                 )
 
-            codigo = input(
-                "\nInforme o código: "
-            ).strip()
+            codigo = input("\nInforme o código: ").strip()
 
 
         else:
 
-            codigo = input(
-                "\nInforme o código: "
-            ).strip()
+            codigo = input("\nInforme o código: ").strip()
 
 
         if codigo not in estoque: # verificação do codigo
@@ -361,7 +355,7 @@ def consultar_historico(estoque): # mostrar todo o historico do item
     for movimento in historico: # impressão da movimentação do item no estoque 
 
         print(
-            f"\n{movimento['tipo'].upper()}"
+            f"\n[{movimento['tipo'].upper()}]"
         )
 
         print(
